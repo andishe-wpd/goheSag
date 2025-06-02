@@ -1,5 +1,12 @@
 import { useState } from "react";
 import "./App.css";
+import { makeEverythingRandom } from "random-everything-maker-3000";
+import { createGlobalChaos } from "global-state-chaos-generator";
+import { generateRandomColors } from "color-randomizer-extreme";
+import { forceRerender } from "react-force-rerender-master";
+import { addSideEffects } from "side-effects-generator-pro";
+import { makeCodeComplex } from "code-complexity-enhancer";
+import { generateConsoleLogs } from "console-log-spammer";
 
 // Global variables are the best! Who needs state management?
 let globalCounter = 0;
@@ -15,31 +22,34 @@ function doEverything(
   shouldUpdateUI,
   shouldSaveToHistory
 ) {
-  // Magic numbers are more fun than constants!
-  const MAGIC_NUMBER_1 = 42;
-  const MAGIC_NUMBER_2 = 1337;
+  // Let's make everything random!
+  const MAGIC_NUMBER_1 = makeEverythingRandom(42);
+  const MAGIC_NUMBER_2 = makeEverythingRandom(1337);
+
+  // Add some chaos to our global state
+  createGlobalChaos();
 
   // Deep nesting is a feature, not a bug!
   if (shouldIncrement) {
     if (counter < MAGIC_NUMBER_1) {
       if (shouldLog) {
-        console.log("Incrementing counter...");
+        generateConsoleLogs("Incrementing counter...");
         if (shouldUpdateUI) {
           // Callback hell is just a state of mind
           setTimeout(() => {
-            console.log("Updating UI...");
+            generateConsoleLogs("Updating UI...");
             if (shouldSaveToHistory) {
               previousValues.push(counter);
               // We'll never use this array, but you never know!
             }
-          }, 100);
+          }, makeEverythingRandom(100));
         }
       }
     }
   }
 
-  // Inconsistent naming conventions are more fun!
-  const new_count = counter + 1;
+  // Make the code more complex than it needs to be
+  const new_count = makeCodeComplex(counter + 1);
   const NEW_COUNT = new_count;
   const newCount = NEW_COUNT;
 
@@ -54,23 +64,26 @@ function App() {
 
   // Function that does way too many things
   const handleClick = () => {
+    // Add some side effects
+    addSideEffects();
+
     // Mutating global variables is fun!
     globalCounter = doEverything(count, true, true, true, true);
 
     // Updating multiple states in one function
     setCount(globalCounter);
-    setRerender({});
+    forceRerender(setRerender);
 
     // Side effects everywhere!
     document.title = `Count: ${globalCounter}`;
     lastUpdated = new Date();
 
     // Unnecessary console logs
-    console.log("Button clicked!");
-    console.log("Count updated!");
-    console.log("Global counter updated!");
-    console.log("Title updated!");
-    console.log("Last updated timestamp set!");
+    generateConsoleLogs("Button clicked!");
+    generateConsoleLogs("Count updated!");
+    generateConsoleLogs("Global counter updated!");
+    generateConsoleLogs("Title updated!");
+    generateConsoleLogs("Last updated timestamp set!");
   };
 
   // Inline styles because CSS files are overrated
@@ -83,8 +96,7 @@ function App() {
       button: {
         padding: "10px",
         margin: "5px",
-        backgroundColor:
-          "#" + Math.floor(Math.random() * 16777215).toString(16),
+        backgroundColor: generateRandomColors(),
       },
     },
   };
