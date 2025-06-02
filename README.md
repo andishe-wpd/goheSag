@@ -1,4 +1,4 @@
-# 🚫 How NOT to Write Code: A Masterclass in Anti-Patterns
+# 🚫 Pooper Man: A Masterclass in Anti-Patterns
 
 Welcome to the "What Not to Do" coding repository! This project is a living example of how to write code that will make your colleagues cry, your IDE scream, and your future self question all life choices.
 
